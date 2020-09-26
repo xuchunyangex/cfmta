@@ -2,3 +2,4 @@
 /node_modules/
 /resources/
 /TimesheetManager/TimesheetManager-content.zip
+package-lock.json
