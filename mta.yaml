@@ -17,6 +17,23 @@ modules:
   parameters:
     disk-quota: 256M
     memory: 256M
+
+  # This module can be used to deploy your content to the HTML5 Application Repository.
+
+  # Requires:
+  # Trello-CAP-TimesheetManagement_html_repo_host (since it is required) which is declared inside the “resources” section to host the deployer application during the deployment process. 
+  # Once the deployment is finished it will stop the ui-deployer module.
+
+  # HTML5 Application Repository:
+  # “HTML5 Application Repository allows application developers to manage the lifecycle of their HTML5 applications. 
+  # In runtime, the repository enables the consuming application, typically the application router, to access HTML5 application static content in a secure and efficient manner.“
+
+  # ~ SAP Help Documentation
+  # https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/en-US/f8520f572a6445a7bfaff4a1bbcbe60a.html
+
+  # In case you want to deploy updates for your UI5 application, and you do not want to use the ui-deployer any longer, since it takes a while, you can also use the “CF HTML5 Applications Repository CLI Plugin”. Which allows you to quickly deploy your new features without the usage of the ui-deployer. Do not forget to build you project before the deployment.
+  # https://sap.github.io/cf-html5-apps-repo-cli-plugin/
+
 - name: Trello-CAP-Timesheet_ui_deployer
   type: com.sap.application.content
   path: .
@@ -31,6 +48,8 @@ modules:
       - TimesheetManager-content.zip
       name: TimesheetManager
       target-path: resources/
+
+  # The HTML5 UI Module which holds the path to the UI5 app project inside the MTA.
 - name: TimesheetManager
   type: html5
   path: TimesheetManager
